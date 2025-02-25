@@ -1,0 +1,8 @@
+import('Matrix','mnormt')
+useDynLib(LongSubTest, .registration=TRUE)
+exportPattern("^[[:alpha:]]+")
+
+export(LongSubTestST)
+export(LongSubTestWAST)
+export(gam.init)
+export(generate_data)

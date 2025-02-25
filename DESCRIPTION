@@ -1,0 +1,15 @@
+Package: LongSubTest
+Type: Package
+Title: LongSubTest
+Version: 0.0.1
+Authors@R: c(person(given = "Panpan", family = "Ren", role = c("aut", "cre"), email = "panpanren@stu.sufe.edu.cn"))
+Author: Panpan Ren [aut,cre]
+Maintainer: Panpan Ren <panpanren@stu.sufe.edu.cn>
+Description: Change-plane testing methods including the supremum and the weighted average of score test are proposed for longitudinal data. 
+License: GPL (>=2)
+Imports: Matrix,mnormt
+Repository: github
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
