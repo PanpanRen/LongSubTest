@@ -13,22 +13,36 @@ LongSubTestWAST <- function(data, family = 1, B = 1000, seed = 1) {
     r = ncol(U)+1
 
     set.seed(seed+1)
-    V = matrix(rnorm(n*B), n, B)
-    
-    fit = .Call(
-        "_WAST1",
-        as.integer(n),
-        as.integer(m),
-        as.integer(p),
-        as.integer(q),
-        as.integer(r),
-        as.numeric(cbind(1,X)),
-        as.numeric(t(Y)),
-        as.numeric(t(Z)),
-        as.numeric(cbind(1,U)),
-        as.integer(family),
-        as.integer(B),
-        as.numeric(V))
+    # V = matrix(rnorm(n*B), n, B)
+    # 
+    # fit = .Call(
+    #     "_WAST1",
+    #     as.integer(n),
+    #     as.integer(m),
+    #     as.integer(p),
+    #     as.integer(q),
+    #     as.integer(r),
+    #     as.numeric(cbind(1,X)),
+    #     as.numeric(t(Y)),
+    #     as.numeric(t(Z)),
+    #     as.numeric(cbind(1,U)),
+    #     as.integer(family),
+    #     as.integer(B),
+    #     as.numeric(V))
+    Zeta = matrix(rnorm(n*B), n, B)
+    fit = .Call("PVAL",
+                     as.integer(n),
+                     as.integer(m),
+                     as.integer(p),
+                     as.integer(q),
+                     as.integer(r),
+                     as.numeric(cbind(1,X)),
+                     as.numeric(t(Y)),
+                     as.numeric(t(Z)),
+                     as.numeric(cbind(1,U)),
+                     as.integer(B),
+                     as.numeric(Zeta)
+    )
     
     toc = proc.time()
     fit$time = toc[3] - tic[3]

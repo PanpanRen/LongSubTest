@@ -42,7 +42,7 @@ void printArrayDouble1(const double *arr, int n, int nrow, int ncol){
     }
 }
 
-int MatrixInvSymmetric(double *a,int n){
+static int MatrixInvSymmetric(double *a,int n){
 	int i,j,k,m;
     double w,g,*b;
     b = (double*)malloc(n*sizeof(double));
@@ -70,7 +70,7 @@ int MatrixInvSymmetric(double *a,int n){
     return(2);
 }
 
-void AbyB(double *outVector, double *A, double *v, int n, int p, int q){
+static void AbyB(double *outVector, double *A, double *v, int n, int p, int q){
 	int i,j,k;
 	double tmp;
 	for (i=0;i<n;i++){
@@ -83,7 +83,7 @@ void AbyB(double *outVector, double *A, double *v, int n, int p, int q){
 	}
 }
 
-void ATbyB(double *outVector, double *A, double *v, int n, int p, int q){
+static void ATbyB(double *outVector, double *A, double *v, int n, int p, int q){
 	int i,j,k;
 	double tmp;
 	for (j=0;j<p;j++){
@@ -96,7 +96,7 @@ void ATbyB(double *outVector, double *A, double *v, int n, int p, int q){
 	}
 }
 
-void Initialest(double *alpha,int n,int m,int p,double *x,double *y,double *hess){
+static void Initialest(double *alpha,int n,int m,int p,double *x,double *y,double *hess){
     int nm = n*m;
     int i,j,k, temp, temp1, temp2;
     double tmp, *xy;
@@ -133,7 +133,7 @@ void Initialest(double *alpha,int n,int m,int p,double *x,double *y,double *hess
 }
 
 // the inverse of sigma
-void sigmatilde(double *sigma,double *alpha,double *xalpha,int n,int m,int p,double *x,double *y){
+static void sigmatilde(double *sigma,double *alpha,double *xalpha,int n,int m,int p,double *x,double *y){
     int nm = n*m;
     int i,j,k, temp, temp1,temp2;
     double tmp;
@@ -168,7 +168,7 @@ void sigmatilde(double *sigma,double *alpha,double *xalpha,int n,int m,int p,dou
     // free(tem);
 }
 
-void Finalest(double *alpha,int n,int m,int p,double *x,double *y,double *sigma){
+static void Finalest(double *alpha,int n,int m,int p,double *x,double *y,double *sigma){
     int nm = n*m;
     int i,j,k;
     double *tem,*tem1,*tem2;
